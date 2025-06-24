@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #333;
+    --secondary-color: #ccc;
+    --background-gradient-start: #e0e0f0;
+    --background-gradient-end: #c0c0e0;
+    --text-color: var(--primary-color);
+    --text-color-inverted: white;
+    --link-bg: white;
+    --link-hover-bg: var(--primary-color);
+    --link-border: 2px solid var(--secondary-color);
+    --border-radius-sm: 8px;
+    --border-radius-lg: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --transition-time: 0.3s;
+    --max-content-width: 800px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(
+      to bottom right,
+      var(--background-gradient-start),
+      var(--background-gradient-end)
+    );
+    line-height: 1.6;
+    color: var(--text-color);
+    min-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    background-color: beige;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px var(--secondary-color);
+  }
+  
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    background-color: var(--link-bg);
+    color: var(--text-color);
+    padding: 12px 24px;
+    border-radius: var(--border-radius-sm);
+    border: var(--link-border);
+    transition: all var(--transition-time) ease;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  a:hover,
+  a:focus-visible {
+    background-color: var(--link-hover-bg);
+    color: var(--text-color-inverted);
+    text-decoration: underline;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      padding: var(--spacing-sm);
+    }
+    
+    a {
+      width: 100%;
+      max-width: 300px;
+    }
+  }

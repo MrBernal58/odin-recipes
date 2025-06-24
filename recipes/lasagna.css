@@ -1,0 +1,213 @@
+/* ========== DESIGN SYSTEM ========== */
+:root {
+  /* Color Palette */
+  --color-tomato: #c1121f;          /* Rojo tomate */
+  --color-cheese: #f4e9cd;          /* Beige queso ricotta */
+  --color-pasta: #e6c229;           /* Amarillo masa fresca */
+  --color-basil: #386641;           /* Verde albahaca */
+  --color-wood: #5e3023;            /* Madera de tabla */
+  
+  /* Semantic Tokens */
+  --primary: var(--color-tomato);
+  --secondary: var(--color-pasta);
+  --bg-body: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+  --text-primary: var(--color-wood);
+  --text-inverted: #ffffff;
+  
+  /* Spacing */
+  --space-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+  --space-md: clamp(1rem, 0.8rem + 1vw, 2rem);
+  --space-lg: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+  --space-xl: clamp(2rem, 1.6rem + 2vw, 4rem);
+  
+  /* Effects */
+  --shadow-sm: 0 2px 8px rgba(92, 30, 4, 0.1);
+  --shadow-md: 0 4px 16px rgba(194, 24, 91, 0.15);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========== BASE STYLES ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-lg);
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.7;
+  padding: var(--space-md);
+  min-height: 100vh;
+}
+
+/* ========== LAYOUT ========== */
+.recipe-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ========== HEADER ========== */
+.recipe-header {
+  position: relative;
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-lg);
+  margin-bottom: var(--space-md);
+  min-height: 180px;
+}
+
+.home-button {
+  position: fixed;
+  top: var(--space-md);
+  left: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--primary);
+  color: var(--text-inverted);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: var(--color-basil);
+  box-shadow: var(--shadow-md);
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+}
+
+.recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--primary);
+  margin-top: var(--space-md);
+  position: relative;
+  display: inline-block;
+  padding: 0 var(--space-lg);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+}
+
+/* ========== RECIPE CONTENT ========== */
+.recipe-hero {
+  text-align: center;
+  margin: var(--space-lg) 0;
+}
+
+.recipe-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid var(--primary);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.recipe-image:hover {
+  transform: scale(1.02);
+}
+
+.recipe-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: var(--space-md);
+  border-radius: 12px;
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-basil);
+  font-size: 1.8rem;
+  margin-bottom: var(--space-md);
+  border-bottom: 2px dashed var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+/* ========== LISTS ========== */
+.ingredients-list {
+  list-style: none;
+}
+
+.ingredient-item {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.ingredient-item::before {
+  content: "🧀";
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+.steps-list {
+  counter-reset: step-counter;
+  list-style: none;
+}
+
+.step-item {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: calc(var(--space-lg) + 1.5rem);
+  margin-bottom: var(--space-md);
+}
+
+.step-item::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--primary);
+  color: white;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-sm);
+  }
+  
+  .home-button {
+    top: var(--space-sm);
+    left: var(--space-sm);
+    padding: 0.5rem 1rem;
+  }
+  
+  .recipe-title {
+    padding: 0 var(--space-md);
+  }
+  
+  .recipe-section {
+    padding: var(--space-sm);
+  }
+}

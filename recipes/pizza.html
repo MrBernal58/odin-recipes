@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza</title>
+  <!-- Fuente principal + fallbacks -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght@400;700&family=Poppins:wght@400;700&display=swap">
+  <!-- Ruta CORRECTA al CSS (asumiendo estructura /css/pizza.css) -->
+  <link rel="stylesheet" href="../pizza.css">
+</head>
+<body>
+  <!-- Contenedor principal semántico -->
+  <div class="pizza-app">
+    <!-- Header con botón absoluto -->
+    <header class="recipe-header">
+      <a href="../index.html" class="home-button">
+        <svg class="home-icon" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+      <h1 class="recipe-title">Pizza</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="recipe-main">
+      <!-- Sección de imagen -->
+      <section class="hero-image">
+        <img src="https://www.foodandwine.com/thmb/rtgrkzweNBq5uvWDPjTU3xOTKKk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/margherita-pizza-with-argula-and-prosciutto-FT-RECIPE0721-04368ec288a84d2e997573aca0001d98.jpg" 
+             alt="Pizza margherita profesional" 
+             class="recipe-image">
+      </section>
+
+      <!-- Sección de descripción -->
+      <section class="recipe-description">
+        <h2>Descripción</h2>
+        <p>Una pizza clásica con masa casera, salsa de tomate, queso derretido y tus ingredientes favoritos.</p>
+      </section>
+
+      <!-- Sección de ingredientes -->
+      <section class="recipe-ingredients">
+        <h2>Ingredientes</h2>
+        <ul class="ingredients-list">
+          <li class="ingredient-item">Masa para pizza</li>
+          <li class="ingredient-item">Salsa de tomate</li>
+          <li class="ingredient-item">Queso mozzarella</li>
+          <li class="ingredient-item">Pepperoni o ingredientes al gusto</li>
+          <li class="ingredient-item">Orégano</li>
+        </ul>
+      </section>
+
+      <!-- Sección de pasos -->
+      <section class="recipe-steps">
+        <h2>Pasos</h2>
+        <ol class="steps-list">
+          <li class="step-item">Extiende la masa sobre una bandeja para hornear.</li>
+          <li class="step-item">Agrega la salsa de tomate.</li>
+          <li class="step-item">Cubre con queso y los ingredientes que elijas.</li>
+          <li class="step-item">Hornea por 15-20 minutos a 200°C.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
